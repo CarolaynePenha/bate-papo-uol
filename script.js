@@ -4,9 +4,11 @@ let objectName = {
   name: userName,
 };
 let newMessage = {};
+let participants = [];
+let controler = 0;
 
-// declaração de funções
-// Log in
+// Declaração de funções
+//--------------------------------------------- Log in
 function logIn() {
   promise = axios.post(
     "https://mock-api.driven.com.br/api/v4/uol/participants",
@@ -24,7 +26,7 @@ function keepconection() {
 }
 function successfulLogIn() {
   console.log("OK");
-  promise = axios.get("https://mock-api.driven.com.br/api/v4/uol/participants");
+  getParticipants();
 }
 function otherNameUserToLogIn() {
   userName = prompt("Esse nome já está em uso! Por favor digite outro nome.");
@@ -36,7 +38,7 @@ function otherNameUserToLogIn() {
 
 // ------------------------------------------- messages
 
-function textarea(event) {
+function textarea() {
   let messageInTextArea = document.querySelector("footer textarea");
   newMessage = {
     from: userName,
@@ -78,7 +80,6 @@ function includeMessages(response) {
      </div>`;
     }
   }
-
   let lastMessage = document.querySelector("main").lastChild;
   lastMessage.scrollIntoView();
 }
@@ -105,7 +106,61 @@ function sendMessages() {
   promise.catch(reload);
 }
 
+//------------------------------------------------- menu
+function openNav() {
+  let hide = document.querySelector(".background-nav");
+  hide.classList.remove("hide");
+  let fixed = document.querySelector("main");
+  fixed.classList.add("fixed");
+}
+function closeNav() {
+  let hide = document.querySelector(".background-nav");
+  hide.classList.add("hide");
+  let fixed = document.querySelector("main");
+  fixed.classList.remove("fixed");
+}
+
+function getParticipants() {
+  let promise = axios.get(
+    "https://mock-api.driven.com.br/api/v4/uol/participants"
+  );
+  promise.then(printParticipants);
+  promise.catch(handleError);
+}
+function printParticipants(response) {
+  participants = response.data;
+  let infos = document.querySelector(".contacts");
+  // let namesIcons = document.querySelector(".names-icons");
+  // let checkMarc = document.querySelector(".check-marc");
+  infos.innerHTML = `
+  <div class="user-infos">    
+  <ion-icon name="people"></ion-icon> 
+  <p>Todos</p> </div>`;
+  for (let i = 0; i < participants.length; i++) {
+    infos.innerHTML += `
+    <div onclick="checkMarc('check${i}', 'info${i}')" class="user-infos info${i}">           
+      <ion-icon name="person-circle"></ion-icon>
+      <p>${participants[i].name}</p>
+    </div>`;
+  }
+}
+
+function checkMarc(checkElement, userElement) {
+  console.log(checkElement, userElement);
+  let check = document.querySelector(`.${checkElement}`);
+  console.log(check);
+  let userInfos = document.querySelector(`.${userElement}`);
+  if (!check) {
+    console.log(userInfos);
+    userInfos.innerHTML += `
+      <ion-icon class="${checkElement}" name="checkmark-outline"></ion-icon>`;
+  } else {
+    userInfos.classList.toggle("hide");
+  }
+}
+
 // others
 logIn();
 setInterval(getMessages, 3000);
 setInterval(keepconection, 5000);
+setInterval(getParticipants, 10000);

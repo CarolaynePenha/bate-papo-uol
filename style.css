@@ -23,13 +23,12 @@ header img {
   width: 75px;
   margin: 20px;
 }
-/* body */
+/* main */
 main {
   background-color: #f3f3f3;
   margin: 90px 0;
   width: 100%;
   height: 100%;
-  position: fixed;
 }
 .fixed {
   position: fixed;
@@ -105,13 +104,21 @@ footer ion-icon {
 /* menu */
 
 .background-nav {
-  background-color: #00000099;
+  background-color: #ebe6e604;
   position: absolute;
   width: 100%;
   height: 100%;
   z-index: 1;
   display: flex;
   justify-content: flex-end;
+}
+.transparent {
+  background-color: #00000099;
+  width: 30%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  left: 0;
 }
 nav ion-icon {
   font-size: 25px;
@@ -130,34 +137,39 @@ nav p {
 }
 .contacts {
   display: flex;
-  position: relative;
+  flex-direction: column;
 }
 .visibility {
   display: flex;
-  position: relative;
 }
 .hide {
   display: none;
 }
+.user-infos {
+  display: flex;
+  position: relative;
+}
+
+.user-infos ion-icon {
+  margin-top: 15px;
+  margin-left: 20px;
+}
+.user-infos p {
+  margin-left: 20px;
+}
+.check ion-icon {
+  position: absolute;
+  right: 0px;
+}
 .icons {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
 }
 .icons ion-icon {
-  margin: 5px 15px;
-}
-.names-icons {
-  display: flex;
-  flex-direction: column;
+  margin-top: 15px;
+  margin-left: 20px;
 }
 .names-icons p {
   text-align: start;
-}
-.check {
-  width: fit-content;
-  height: fit-content;
-  position: absolute;
-  right: 10px;
-  bottom: 12px;
+  margin-left: 20px;
 }

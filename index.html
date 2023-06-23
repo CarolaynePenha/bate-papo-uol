@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
     <link rel="stylesheet" href="reset.css">
     <meta charset="UTF-8">
@@ -13,25 +13,17 @@
 <body>
     <header>
         <img src="./img/bate-papo-uol.png" alt="logo-bate-papo-uol">
-        <ion-icon name="people"></ion-icon>
+        <ion-icon onclick="openNav()" name="people"></ion-icon>
     </header>
     <main>
      
     </main>
-    <div class="background-nav">
+    <div class="background-nav hide">
+        <div onclick="closeNav()" class="transparent"></div>
         <nav>
             <p><strong> Escolha um contato para enviar mensagem:</strong></p>
             <div class="contacts">
-                <div class="icons">
-                    <ion-icon name="people"></ion-icon>
-                    <ion-icon name="person-circle"></ion-icon>
-                </div>
-                <div class="names-icons">
-                    <p>Todos</p>
-                    <p>Joao</p>
-                </div>
-                <div class="check">
-                    <ion-icon name="checkmark-outline"></ion-icon>
+                <div class="user-infos">  
                 </div>
             </div>
             <p><strong> Escolha a  visibilidade:</strong></p>
