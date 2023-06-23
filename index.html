@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="reset.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <title>Bate-papo-Uol</title>
+</head>
+<body>
+    <header>
+        <img src="./img/bate-papo-uol.png" alt="logo-bate-papo-uol">
+        <ion-icon name="people"></ion-icon>
+    </header>
+    <main>
+     
+    </main>
+    <div class="background-nav">
+        <nav>
+            <p><strong> Escolha um contato para enviar mensagem:</strong></p>
+            <div class="contacts">
+                <div class="icons">
+                    <ion-icon name="people"></ion-icon>
+                    <ion-icon name="person-circle"></ion-icon>
+                </div>
+                <div class="names-icons">
+                    <p>Todos</p>
+                    <p>Joao</p>
+                </div>
+                <div class="check">
+                    <ion-icon name="checkmark-outline"></ion-icon>
+                </div>
+            </div>
+            <p><strong> Escolha a  visibilidade:</strong></p>
+            <div class="visibility" >
+                <div class="icons">
+                    <ion-icon name="lock-open"></ion-icon>
+                    <ion-icon name="lock-closed"></ion-icon>
+                </div>
+                <div class="names-icons">
+                    <p>Público</p>
+                    <p>Reservadamente</p>
+                </div>
+            </div>
+
+            
+        </nav>
+    </div>
+    <footer>
+        <textarea name="mesage" id="mesage" placeholder="Escreva aqui..." cols="30" rows="10"></textarea>
+        <ion-icon onclick="textarea()" name="paper-plane-outline"></ion-icon>
+    </footer>
+    
+    <script src="https://unpkg.com/ionicons@5.4.0/dist/ionicons.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script> 
+</body>
+</html>

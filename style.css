@@ -1,0 +1,163 @@
+* {
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+/* header */
+header {
+  background-color: #ffffff;
+  width: 100%;
+  height: 80px;
+  position: fixed;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  filter: drop-shadow(1px 1px 10px #d6d5d6);
+}
+header ion-icon {
+  font-size: 45px;
+  margin: 20px;
+}
+
+header img {
+  width: 75px;
+  margin: 20px;
+}
+/* body */
+main {
+  background-color: #f3f3f3;
+  margin: 90px 0;
+  width: 100%;
+  height: 100%;
+  position: fixed;
+}
+.fixed {
+  position: fixed;
+}
+.status {
+  background-color: #dcdcdc;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.message {
+  background-color: #ffffff;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+.private_message {
+  background-color: #ffdede;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+}
+strong {
+  font-weight: 700;
+  margin-right: 10px;
+}
+small {
+  font-weight: 400;
+  margin: 10px;
+  color: grey;
+}
+
+/* footer */
+footer {
+  position: fixed;
+  width: 100%;
+  background-color: #ffffff;
+  height: 80px;
+  bottom: 0;
+  filter: drop-shadow(3px 3px 20px #d6d5d6);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+footer textarea {
+  width: 85%;
+  height: 100%;
+  border: 0;
+  font-weight: 400;
+  font-style: italic;
+  font-size: 18px;
+  text-align: left;
+  color: black;
+  padding: 30px 10px;
+  overflow-y: hidden;
+}
+
+textarea::placeholder {
+  color: black;
+}
+footer ion-icon {
+  font-size: 26px;
+  margin-right: 20px;
+  color: black;
+}
+
+/* menu */
+
+.background-nav {
+  background-color: #00000099;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  justify-content: flex-end;
+}
+nav ion-icon {
+  font-size: 25px;
+}
+nav {
+  background-color: #ffffff;
+  width: 70%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+  font-size: 16px;
+}
+nav p {
+  text-align: center;
+  margin: 20px 0;
+}
+.contacts {
+  display: flex;
+  position: relative;
+}
+.visibility {
+  display: flex;
+  position: relative;
+}
+.hide {
+  display: none;
+}
+.icons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.icons ion-icon {
+  margin: 5px 15px;
+}
+.names-icons {
+  display: flex;
+  flex-direction: column;
+}
+.names-icons p {
+  text-align: start;
+}
+.check {
+  width: fit-content;
+  height: fit-content;
+  position: absolute;
+  right: 10px;
+  bottom: 12px;
+}
