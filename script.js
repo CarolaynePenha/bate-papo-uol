@@ -5,7 +5,8 @@ let objectName = {
 };
 let newMessage = {};
 let participants = [];
-let controler = 0;
+let participants2 = [];
+let arrayCheckMarc = [];
 
 // Declaração de funções
 //--------------------------------------------- Log in
@@ -47,11 +48,14 @@ function textarea() {
     type: "message",
   };
   sendMessages();
+  messageInTextArea.value = "";
 }
+
 function includeMessages(response) {
   let infoMessage = response.data;
   let section = document.querySelector("main");
   section.innerHTML = "";
+  console.log(infoMessage);
   for (let i = 0; i < infoMessage.length; i++) {
     if (infoMessage[i].type === "status") {
       section.innerHTML += `
@@ -81,7 +85,7 @@ function includeMessages(response) {
     }
   }
   let lastMessage = document.querySelector("main").lastChild;
-  lastMessage.scrollIntoView();
+  lastMessage?.scrollIntoView();
 }
 
 function handleError(error) {
@@ -102,7 +106,7 @@ function sendMessages() {
     "https://mock-api.driven.com.br/api/v4/uol/messages",
     newMessage
   );
-  promise.then(includeMessages);
+  promise.then();
   promise.catch(reload);
 }
 
@@ -130,37 +134,22 @@ function getParticipants() {
 function printParticipants(response) {
   participants = response.data;
   let infos = document.querySelector(".contacts");
-  // let namesIcons = document.querySelector(".names-icons");
-  // let checkMarc = document.querySelector(".check-marc");
   infos.innerHTML = `
   <div class="user-infos">    
   <ion-icon name="people"></ion-icon> 
   <p>Todos</p> </div>`;
   for (let i = 0; i < participants.length; i++) {
+    arrayCheckMarc[i] = true;
     infos.innerHTML += `
-    <div onclick="checkMarc('check${i}', 'info${i}')" class="user-infos info${i}">           
+    <div class="user-infos">           
       <ion-icon name="person-circle"></ion-icon>
-      <p>${participants[i].name}</p>
+      <p class="participants-names">${participants[i].name}</p>
     </div>`;
   }
 }
-
-function checkMarc(checkElement, userElement) {
-  console.log(checkElement, userElement);
-  let check = document.querySelector(`.${checkElement}`);
-  console.log(check);
-  let userInfos = document.querySelector(`.${userElement}`);
-  if (!check) {
-    console.log(userInfos);
-    userInfos.innerHTML += `
-      <ion-icon class="${checkElement}" name="checkmark-outline"></ion-icon>`;
-  } else {
-    userInfos.classList.toggle("hide");
-  }
-}
-
 // others
 logIn();
 setInterval(getMessages, 3000);
 setInterval(keepconection, 5000);
 setInterval(getParticipants, 10000);
+enterKey();

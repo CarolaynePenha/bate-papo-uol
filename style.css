@@ -157,10 +157,6 @@ nav p {
 .user-infos p {
   margin-left: 20px;
 }
-.check ion-icon {
-  position: absolute;
-  right: 0px;
-}
 .icons {
   display: flex;
   flex-direction: column;

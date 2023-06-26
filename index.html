@@ -42,7 +42,7 @@
         </nav>
     </div>
     <footer>
-        <textarea name="mesage" id="mesage" placeholder="Escreva aqui..." cols="30" rows="10"></textarea>
+        <textarea name="message" onkeydown="if(event.keyCode == 13) return textarea()" id="message" placeholder="Escreva aqui..." cols="30" rows="10"></textarea>
         <ion-icon onclick="textarea()" name="paper-plane-outline"></ion-icon>
     </footer>
     
